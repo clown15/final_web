@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>BMO BANK</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <div id="header-wrapper">
+        <div id="header" class="container">
+          <!-- Logo -->
+          <h1 id="logo"><a href="index.html">BMO BANK</a></h1>
+
+          <!-- Nav -->
+          <nav id="nav">
+            <ul>
+              <li>
+                <a href="login.html">로그인</a>
+              </li>
+              <li><a href="lookup.html">거래 조회</a></li>
+              <li class="break">
+                <a href="https://d3su537n0skogf.cloudfront.net/" onClick="window.open(this.href, '', 'width=400, height=430'); return false;">챗봇 상담</a>
+              </li>
+              <li><a href="index.html">고객 센터</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main -->
+      <div class="wrapper">
+        <div class="container" id="main">
+          <!-- Content -->
+          
+            <article id="content">
+              <header>
+                <h2>로그인</h2>
+              </header>
+              <p>
+                안전한 금융 거래를 위하여 이용 후 반드시 로그아웃 해 주세요.
+              </p>
+            </article>
+          </div>
+          <div class="row features">
+            <section class="col-4 col-12-narrower feature">
+				<header>
+				<h3 >비모뱅크 아이디 로그인</h3>
+			</header>
+              <form action="login-index.html" method="get" id="login-form">
+                <input
+                  required
+                  name="username"
+                  type="text"
+                  placeholder=" Email or ID"
+				  id="ID"
+                />
+                <input
+                  required
+                  minlength="4"
+                  name="password"
+                  type="password"
+                  placeholder=" Password"
+				  id="PW"
+                />
+                <a id = "FindPassword">패스워드 및 계정 찾기</a>
+                <ul class="actions">
+                  <li><input type="button" id="login_btn" onclick="login()" value="로그인" /></li>
+                </ul>
+              </form>
+            </section>
+			<section class="col-4 col-12-narrower feature">
+				<header>
+				  <h3>인증서 로그인</h3>
+				</header>
+				<ul class="actions">
+					<li><input type="submit" value="공동인증서 로그인" /></li>
+					<li><input id="login" type="submit" value="인증센터" /></li>
+				  </ul>
+			  </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div id="footer-wrapper">
+        <div id="footer" class="container">
+          <header class="major">
+            <h2>Euismod aliquam vehicula lorem</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur et sed adipiscing elit.
+              Curabitur vel sem sit<br />
+              dolor neque semper magna lorem ipsum feugiat veroeros lorem ipsum
+              dolore.
+            </p>
+          </header>
+          <div class="row">
+            <section class="col-6 col-12-narrower">
+              <form method="post" action="#">
+                <div class="row gtr-50">
+                  <div class="col-6 col-12-mobile">
+                    <input name="name" placeholder="Name" type="text" />
+                  </div>
+                  <div class="col-6 col-12-mobile">
+                    <input name="email" placeholder="Email" type="text" />
+                  </div>
+                  <div class="col-12">
+                    <textarea name="message" placeholder="Message"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <ul class="actions">
+                      <li><input type="submit" value="Send Message" /></li>
+                      <li><input type="reset" value="Clear form" /></li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+            </section>
+            <section class="col-6 col-12-narrower">
+              <div class="row gtr-0">
+                <ul class="divided icons col-6 col-12-mobile">
+                  <li class="icon brands fa-twitter">
+                    <a href="#"
+                      ><span class="extra">twitter.com/</span>untitled</a
+                    >
+                  </li>
+                  <li class="icon brands fa-facebook-f">
+                    <a href="#"
+                      ><span class="extra">facebook.com/</span>untitled</a
+                    >
+                  </li>
+                  <li class="icon brands fa-dribbble">
+                    <a href="#"
+                      ><span class="extra">dribbble.com/</span>untitled</a
+                    >
+                  </li>
+                </ul>
+                <ul class="divided icons col-6 col-12-mobile">
+                  <li class="icon brands fa-instagram">
+                    <a href="#"
+                      ><span class="extra">instagram.com/</span>untitled</a
+                    >
+                  </li>
+                  <li class="icon brands fa-youtube">
+                    <a href="#"
+                      ><span class="extra">youtube.com/</span>untitled</a
+                    >
+                  </li>
+                  <li class="icon brands fa-pinterest">
+                    <a href="#"
+                      ><span class="extra">pinterest.com/</span>untitled</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div id="copyright" class="container">
+          <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // function getFormData($form) {
+    //   var unindexed_array = $form.serializeArray();
+    //   var indexed_array = {};
+    //   $.map(unindexed_array, function(n,i) {
+    //     indexed_array[n['name']]=n['value'];
+    //   });
+    //   return indexed_array;
+    // }
+    // $('#login_btn').click(function() {
+    //   data = {"data":getFormData($("#login-form"))};
+    //   $.ajax({
+    //     url: "http://192.168.0.88:8000/login",
+    //     type: "POST",
+    //     dataType: "JSON",
+    //     async: true,
+    //     data: JSON.stringify({
+    //       id: $("#ID").val(),
+    //       pw: $("#PW").val(),
+    //     }),
+    //     // data: {
+    //     //   id: $("#ID").val(),
+    //     //   pw: $("#PW").val(),
+    //     // },
+    //     success: function(data) {
+    //       if(data != null) {
+    //         console.log(data);
+    //       }
+    //     },
+    //   })
+    // })
+  </script>
+  <script>
+    async function login() {
+      var id = document.getElementById('ID').value;
+      var pw = document.getElementById('PW').value;
+      var data = {"id":id,"pw":pw};
+      var URL = "http://192.168.0.88:8000/login";
+      var res = await fetch (
+        URL,
+        {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body:JSON.stringify(data),
+        }
+      );
+  
+      res = await res.json();
+  
+      console.log(res["message"]); // message 값 출력
+    }
+  </script>
+</html>
