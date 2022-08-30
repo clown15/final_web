@@ -75,7 +75,8 @@
                 />
                 <a id = "FindPassword">패스워드 및 계정 찾기</a>
                 <ul class="actions">
-                  <li><input type="button" id="login_btn" onclick="login()" value="로그인" /></li>
+                  <li><input type="button" id="login_btn" onclick="login()" class="btn btn-light" value="로그인" /></li>
+                  <li><input type="button" id="signup_btn" onclick="location.href='signup.html'" value="회원가입" /></li>
                 </ul>
               </form>
             </section>
@@ -183,39 +184,8 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
+  
 
-  <script>
-    // function getFormData($form) {
-    //   var unindexed_array = $form.serializeArray();
-    //   var indexed_array = {};
-    //   $.map(unindexed_array, function(n,i) {
-    //     indexed_array[n['name']]=n['value'];
-    //   });
-    //   return indexed_array;
-    // }
-    // $('#login_btn').click(function() {
-    //   data = {"data":getFormData($("#login-form"))};
-    //   $.ajax({
-    //     url: "http://192.168.0.88:8000/login",
-    //     type: "POST",
-    //     dataType: "JSON",
-    //     async: true,
-    //     data: JSON.stringify({
-    //       id: $("#ID").val(),
-    //       pw: $("#PW").val(),
-    //     }),
-    //     // data: {
-    //     //   id: $("#ID").val(),
-    //     //   pw: $("#PW").val(),
-    //     // },
-    //     success: function(data) {
-    //       if(data != null) {
-    //         console.log(data);
-    //       }
-    //     },
-    //   })
-    // })
-  </script>
   <script>
     async function login() {
       var id = document.getElementById('ID').value;

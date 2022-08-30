@@ -22,11 +22,13 @@ app.add_middleware(
 class Info(BaseModel):
     id: str
     pw: str
+    re_pw: str
 
-URL = "http://34.64.182.250:8080/login"
+class Message(BaseModel):
+    message: str = None
 
-# ID 검증을 위한 API 호출
 async def request(client, data):
+    URL = "http://34.64.182.250:8080/login"
     response = await client.post(URL,data=json.dumps(data))
     
     return response.text
@@ -38,14 +40,27 @@ async def task(data):
     
         return result
 
-@app.post("/login")
-async def user_login(info: Info):
+@app.post("/signup")
+async def signup(info: Info):
     """
-    `login API`
+    `signup API`
     :param ID:
     :param PW:
+    :param rePW:
     """
     
     result = await task({"id":info.id})
+    
+    json_data = json.loads(result[0])
+    
+    message = Message()
+    if json_data['message'] != "Error":
+        if info.pw != info.re_pw:
+            message.message = "password Error"
+            
+            return message.__dict__
+    else:
+        message.message = "ID Error"
+        return message.__dict__
     
     return json.loads(result[0])

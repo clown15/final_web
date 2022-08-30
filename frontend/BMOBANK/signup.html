@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+	Telephasic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>BMO BANK</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <div id="header-wrapper">
+            <div id="header" class="container">
+                <!-- Logo -->
+                <h1 id="logo"><a href="index.html">BMO BANK</a></h1>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <a href="login.html">로그인</a>
+                        </li>
+                        <li><a href="lookup.html">거래 조회</a></li>
+                        <li class="break">
+                            <a href="https://d3su537n0skogf.cloudfront.net/"
+                                onClick="window.open(this.href, '', 'width=400, height=430'); return false;">챗봇 상담</a>
+                        </li>
+                        <li><a href="index.html">고객 센터</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="wrapper">
+            <div class="container" id="main">
+                <!-- Content -->
+
+                <article id="content">
+                    <header>
+                        <h2>회원가입</h2>
+                    </header>
+                    <p>
+                        안전한 금융 거래를 위하여 이용 후 반드시 로그아웃 해 주세요.
+                    </p>
+                </article>
+            </div>
+            <div class="row features">
+                <section class="col-4 col-12-narrower feature">
+                    <header>
+                        <h3>비모뱅크 회원가입</h3>
+                    </header>
+                    <form action="login-index.html" method="get" id="login-form">
+                        <input required name="username" type="text" placeholder=" Email or ID" id="ID" />
+                        <input required minlength="4" name="password" type="password" placeholder=" Password" id="PW" />
+                        <input required minlength="4" name="repassword" type="password" placeholder=" Re-enter password" id="PW" />
+                        <ul class="actions">
+                            <li>
+                                <input type="button" id="signup_btn" onclick="signup()"
+                                    value="회원가입" />
+                            </li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+</body>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<script>
+    async function signup() {
+        var id = document.getElementById('ID').value;
+        var pw = document.getElementById('PW').value;
+        var re_pw = document.getElementsByName("repassword")[0].value;
+        var data = { "id": id, "pw": pw , "re_pw":re_pw};
+        var URL = "http://192.168.0.88:8000/signup";
+        var res = await fetch(
+            URL,
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            }
+        );
+
+        res = await res.json();
+
+        console.log(res["message"]); // message 값 출력
+        if (res["message"] == "OK") {
+            location.href = "login.html";
+            alert("회원가입 성공");
+        }else {
+            alert(res["message"]);
+        }
+    }
+</script>
+
+</html>
