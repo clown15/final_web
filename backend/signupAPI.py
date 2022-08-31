@@ -24,9 +24,6 @@ class Info(BaseModel):
     pw: str
     re_pw: str
 
-class Message(BaseModel):
-    message: str = None
-
 async def request(client, data):
     URL = "http://34.64.182.250:8080/login"
     response = await client.post(URL,data=json.dumps(data))
@@ -53,14 +50,10 @@ async def signup(info: Info):
     
     json_data = json.loads(result[0])
     
-    message = Message()
-    if json_data['message'] != "Error":
+    if json_data['message'] == "OK":
         if info.pw != info.re_pw:
-            message.message = "password Error"
-            
-            return message.__dict__
+            json_data['message'] = "비밀번호가 서로 다릅니다."
     else:
-        message.message = "ID Error"
-        return message.__dict__
+        json_data['message'] = "ID가 중복되었습니다."
     
-    return json.loads(result[0])
+    return json_data
