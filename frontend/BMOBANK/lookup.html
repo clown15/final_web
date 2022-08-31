@@ -41,30 +41,26 @@
       <!-- Main -->
       <div class="wrapper">
         <div class="container" id="main">
-          <h3><a>김비모님</a>의 거래 내역</h3>
+          <h3><a>김비모</a>님의 거래 내역</h3>
           <div id="table" class="row features">
-            <table border="1">
+            <table border="1" id="info_table">
               <th>일시</th>
               <th>정보</th>
               <th>금액</th>
               <th>잔액</th>
 
-              <tr id="table-line">
-                <!-- 첫번째 줄 시작 -->
+              <!-- <tr id="table-line">
                 <td>2022.08.23</td>
                 <td>제이크</td>
                 <td>+500,000,000</td>
                 <td>500,000,300</td>
               </tr>
-              <!-- 첫번째 줄 끝 -->
               <tr>
-                <!-- 두번째 줄 시작 -->
                 <td>거래일시2</td>
                 <td>정보2</td>
                 <td>거래금액2</td>
                 <td>잔액2</td>
-              </tr>
-              <!-- 두번째 줄 끝 -->
+              </tr> -->
             </table>
           </div>
         </div>
@@ -161,4 +157,32 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
+  <script>
+    $(document).ready(function() {
+      console.log("hi");
+      $.ajax({
+        contentType: "application/json",
+        type: "POST",
+        url: "http://192.168.0.88:8000/lookup",
+        data: JSON.stringify({"id":"김비모"}),
+        dataType: "json",
+        success: function(res) {
+          console.log(res);
+          console.log(res.message);
+          console.log(res.value);
+          $.each(res.value, function (idx,data) {
+            var row = [];
+            row.push("<tr>");
+            row.push("<td>"+data.date+"</td>");
+            row.push("<td>"+data.info+"</td>");
+            row.push("<td>"+data.amount+"</td>");
+            row.push("<td>"+data.balance+"</td>");
+            row.push("</tr>");
+            $("#info_table").append(row);
+            console.log(data);
+          });
+        },
+      });
+    });
+  </script>
 </html>
