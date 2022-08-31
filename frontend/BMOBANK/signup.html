@@ -60,11 +60,11 @@
                     <form action="login-index.html" method="get" id="login-form">
                         <input required name="username" type="text" placeholder=" Email or ID" id="ID" />
                         <input required minlength="4" name="password" type="password" placeholder=" Password" id="PW" />
-                        <input required minlength="4" name="repassword" type="password" placeholder=" Re-enter password" id="PW" />
+                        <input required minlength="4" name="repassword" type="password" placeholder=" Re-enter password"
+                            id="RE_PW" />
                         <ul class="actions">
                             <li>
-                                <input type="button" id="signup_btn" onclick="signup()"
-                                    value="회원가입" />
+                                <input type="button" id="signup_btn" value="회원가입" />
                             </li>
                         </ul>
                     </form>
@@ -87,11 +87,34 @@
 
 
 <script>
+    $("#signup_btn").click(function () {
+        var id = $("#ID").val();
+        var pw = $("#PW").val();
+        var re_pw = $("#RE_PW").val();
+        var data = { "id": id, "pw": pw, "re_pw": re_pw };
+        var URL = "http://192.168.0.88:8000/signup"
+
+        $.ajax({
+            contentType: "application/json",
+            type: "POST",
+            url: URL,
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function (res) {
+                if (res.message == "OK") {
+                    location.href = "login.html";
+                    alert("회원가입 성공");
+                } else {
+                    alert(res["message"]);
+                }
+            },
+        });
+    });
     async function signup() {
         var id = document.getElementById('ID').value;
         var pw = document.getElementById('PW').value;
         var re_pw = document.getElementsByName("repassword")[0].value;
-        var data = { "id": id, "pw": pw , "re_pw":re_pw};
+        var data = { "id": id, "pw": pw, "re_pw": re_pw };
         var URL = "http://192.168.0.88:8000/signup";
         var res = await fetch(
             URL,
@@ -108,7 +131,7 @@
         if (res["message"] == "OK") {
             location.href = "login.html";
             alert("회원가입 성공");
-        }else {
+        } else {
             alert(res["message"]);
         }
     }

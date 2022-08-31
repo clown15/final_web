@@ -25,7 +25,7 @@ def user_login(info: Info):
     if info.id != "testid" :
         response.message = "OK"
     else:
-        response.message = "Error"
+        response.message = "ID Error"
 
     return response
 

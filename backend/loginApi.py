@@ -48,4 +48,8 @@ async def user_login(info: Info):
     
     result = await task({"id":info.id})
     
-    return json.loads(result[0])
+    json_data = json.loads(result[0])
+    if json_data['message'] != "OK":
+        json_data['message']="아이디 또는 비밀번호가 틀렸습니다."
+
+    return json_data
